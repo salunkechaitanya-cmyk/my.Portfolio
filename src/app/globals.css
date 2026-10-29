@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-primary: #FFFFFF;
+    --bg-secondary: #F8FAFC;
+    --text-primary: #1F2937;
+    --text-secondary: #4B5563;
+    --border-color: #E5E7EB;
+  }
+
+  .dark {
+    --bg-primary: #0B1120;
+    --bg-secondary: #111827;
+    --text-primary: #F9FAFB;
+    --text-secondary: #9CA3AF;
+    --border-color: #1F2937;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-outfit), system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+}
+
+/* Playful background dot pattern */
+.bg-doodle-grid {
+  background-image: radial-gradient(rgba(66, 133, 244, 0.12) 1.5px, transparent 1.5px),
+                    radial-gradient(rgba(234, 67, 53, 0.08) 1.5px, transparent 1.5px);
+  background-size: 32px 32px;
+  background-position: 0 0, 16px 16px;
+}
+
+.dark .bg-doodle-grid {
+  background-image: radial-gradient(rgba(66, 133, 244, 0.18) 1.5px, transparent 1.5px),
+                    radial-gradient(rgba(251, 188, 5, 0.12) 1.5px, transparent 1.5px);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4285F4;
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Playful badge hover animation */
+.hover-wiggle:hover {
+  animation: wiggle 0.4s ease-in-out infinite alternate;
+}
+
